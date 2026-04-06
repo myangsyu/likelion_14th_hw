@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="page-container">
+    <p class="tag">LikeLion_14th_session</p>
+    <h1 class="title">2026 멋쟁이사자처럼 14기</h1>
+    <h6 class="welcome">This is Second Page</h6>
+
+    <img src="{% static 'images/sy.jpg' %}" alt="수연" width="100px">
+    <div class="section">
+        <div class="section-title">🦁 자기소개 🦁</div>
+        <ul>
+            <li>이름: 임수연</li>
+            <li>학과: 컴퓨터AI학부</li>
+            <li>트랙: 백엔드</li>
+            <li>MBTI: ESFJ</li>
+            <li>취미: 노래, 독서</li>
+            <li>좋아하는 것: 고양이</li>
+        </ul>
+    </div>
+</div>
+
+{% endblock %}

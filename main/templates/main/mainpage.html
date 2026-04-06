@@ -1,0 +1,104 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <div class="page-container">
+        <img src="{% static 'images/아기사자.png' %}" alt="아기사자" width="100px">
+        <p class="tag">LikeLion_14th_session</p>
+        <h1 class="title">2026 멋쟁이사자처럼 {{ generation }}기</h1>
+        <h6 class="welcome">Welcome Django!</h6>
+
+        <div class="section">
+            <div class="section-title">🦁 머쩅이 사자의 일기짱 🦁</div>
+            <ul>
+                <li>오늘의 날씨 : {{ info.weather }}</li>
+                <li>오늘의 기분 : {{ info.feeling }}</li>
+                <li>{{ info.note }}</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <div class="section-title">🦁 VS Code 단축키 🦁</div>
+            <ul>
+                {% for shortcut in shortcuts %}
+                <li>{{ shortcut }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+
+        <div class="section">
+            <div class="section-title">🦁 2주차 세션 내용 정리하기 🦁</div>
+            <ul>
+                <li>HTML 작성<br>
+                    Template 폴더 생성: 유저에게 제공할 HTML 파일을 한 곳에 모아 관리<br>
+                    1. main 앱 디렉토리에 templates 폴더 생성<br>
+                    2. templates 폴더 안에 앱 이름과 동일한 이름의 폴더 생성<br>
+                    templates/main 경로에 mainpage.html 생성<br>
+                    </li><br>
+                    
+                    <li>
+                    View 작성<br>
+                    views.py 작성<br>
+                    def mainpage(request):<br>
+                    return render(request, 'main/mainpage.html')<br>
+                    </li><br>
+
+                    <li>
+                    mainpage 렌더링 로직<br>
+                    1. URL로 접속한다.<br>
+                    2. URL에서 해당하는 view를 찾아 호출한다.<br>
+                    3. view 함수가 HTML을 렌더링해서 응답한다.<br>
+                    4. 화면에 보여준다. <br>
+                    </li><br>
+
+                    <li>
+                    URL 연결<br>
+                    urls.py 작성<br>
+                    from django.urls import path<br>
+                    from main import views<br>
+                    path(’admin/’, admin.site.urls),<br>
+                    path(’’, views.mainpage, name=”mainpage”)<br>
+                    </li><br>
+                    
+                    <li>
+                    테스트<br>
+                    터미널에서 명령어 실행<br>
+                    bash ⇒ python manage.py runserver<br>
+                    http://127.0.0.1:8000<br>
+                    </li><br>
+                    
+                    <li>
+                    HTML 링크 연결<br>
+                    mainpage.html와 secondpage.html 수정<br>
+                    Template 언어의 5가지 기능: URL 연결, 변수 사용, 반복문, 조건문, 필터<br>
+                    </li><br>
+                    
+                    <li>
+                    변수 사용<br>
+                    view.py 에 mainpage 메서드 복붙<br>
+                    </li><br>
+                    
+                    <li>
+                    Template 상속<br>
+                    함께 사용할 html 파일 생성<br>
+                    1. project 디렉토리에 templates 폴더 생성<br>
+                    2. templates 폴더 안에 base.html 파일 생성<br>
+                    </li><br>
+
+                    <li>
+                    navbar 상속<br>
+                    상속하고자 하는 영역이 여러 군데 생김, 이를 각각 분리하여 저장하는 것이 효율적 ⇒ 코드의 반복을 줄일 수 있음<br>                    
+                    base.html에서 nav 부분을 잘라내서 _navbar.html로 옮기기<br>
+                    base.html에서 잘라낸 부분에 _navbar.html 상속시키기<br>
+                    </li><br>
+                    
+                    <li>
+                    정적 파일 폴더 생성<br>
+                    1. project 폴더에 static 폴더 생성<br>
+                    2. static 폴더 내에 css 폴더, images 폴더 생성<br>
+                    3. css 폴더 내에 project.css 파일 생성<br>
+                    </li><br>
+                </li>
+            </ul>
+        </div>
+    </div>
+{% endblock %}
