@@ -1,0 +1,141 @@
+/* project/static/css/mainpage.css */
+
+/* 기본 스타일 */
+body {
+    margin: 0;
+    font-family: 'Pretendard', -apple-system, sans-serif;
+    background: #fcfcfc;
+    color: #2d2d2d;
+    line-height: 1.5;
+}
+
+/* 헤더 */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px 20px;
+    background: white;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+.brand-name {
+    font-size: 32px;
+    color: #fb6327;
+    font-weight: 700; 
+    letter-spacing: -1px;
+}
+
+.nav {
+    display: flex;
+    gap: 32px;
+    padding: 0 20px;
+    border-bottom: 2px solid #eee;
+    background: white;
+}
+
+.nav-item {
+    display: flex;
+    align-items: center;
+    padding-bottom: 12px;
+    cursor: pointer;
+    color: #999;
+    font-size: 20px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.nav-item.active {
+    border-bottom: 3px solid #fb6327;
+    color: #fb6327;
+}
+
+.nav-item:hover {
+    color: #fb6327;
+}
+
+
+.main {
+    padding: 48px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 32px;
+}
+
+.card {
+    background: white;
+    border-radius: 16px; 
+    border: 1px solid #eee;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    padding: 24px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.card:hover {
+    transform: translateY(-8px); 
+    box-shadow: 0 12px 24px rgba(251, 99, 39, 0.15); 
+}
+
+.card-header p {
+    font-size: 14px;
+    color: #fb6327; 
+    font-weight: 600;
+}
+
+.card-content h2 {
+    font-size: 22px;
+    margin: 12px 0;
+    color: #111;
+}
+
+.card-summary {
+    color: #666;
+    font-size: 16px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3; 
+    -webkit-box-orient: vertical;
+}
+
+/* 폼 스타일 */
+form {
+    background: white;
+    border-radius: 20px;
+    padding: 40px;
+    border: 1px solid #eee;
+}
+
+input, textarea {
+    background: #f9f9f9;
+    border: 1px solid #eee;
+    border-radius: 12px;
+    padding: 14px;
+}
+
+button {
+    border-radius: 12px;
+    font-weight: 600;
+    box-shadow: 0 4px 12px rgba(251, 99, 39, 0.3);
+}
+
+/* 상세페이지 */
+.detail-wrapper {
+    background: white;
+    border-radius: 24px;
+    padding: 50px;
+}
+
+.detail-footer {
+    background: #fdf2ed; 
+    padding: 20px;
+    border-radius: 12px;
+    border: none;
+}
