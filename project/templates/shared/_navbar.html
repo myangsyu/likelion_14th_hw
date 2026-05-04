@@ -1,6 +1,43 @@
-<nav class="navbar-container">
-        <!-- mainpage 링크 연결 -->
-        <a class="navbar-link" href="{% url 'main:mainpage' %}">DGU_likelion_14th</a>
-        <!-- secondpage 링크 연결 -->
-        <a class="navbar-link" href="{% url 'main:new_post' %}">Post Page</a>
-    </nav>
+{% load static %}
+
+<header class="header">
+    <div class="header-left">
+        <img src="{% static 'images/icon-logo.png' %}" alt="로고" class="logo">
+    </div>
+    <div class="header-right">
+        {% if user.is_authenticated %}
+            {#                로그인 시 보이는 요소 => 로그아웃/마이페이지 버튼#}
+            <div>{{ user.username }}님 안녕하세요!</div>
+            <div class="auth-links">
+                <a href="{% url 'accounts:logout' %}">로그아웃</a>
+                <a href="{% url 'users:mypage' request.user.id %}">마이페이지</a>
+            </div>
+        {% else %}
+            {#                로그아웃 시 보이는 요소 => 로그인/회원가입 버튼#}
+            <div class="auth-links">
+                <a href="{% url 'accounts:login' %}">로그인</a>
+                <a href="{% url 'accounts:signup' %}">회원가입</a>
+            </div>
+        {% endif %}
+    </div>
+</header>
+
+<nav class="nav">
+    <div class="nav-item {% if request.resolver_match.url_name == 'mainpage' %}active{% endif %}">
+        <a class="nav-item" href="{% url 'main:mainpage' %}">
+            <div class="nav-icon">
+                <img src="{% static 'images/icon-food.png' %}" class="nav-icon-img">
+            </div>
+            <span class="nav-label">홈</span>
+        </a>
+    </div>
+
+    <div class="nav-item {% if request.resolver_match.url_name == 'blogpage' %}active{% endif %}">
+        <a class="nav-item" href="{% url 'main:postpage' %}">
+            <div class="nav-icon">
+                <img src="{% static 'images/icon-book.png' %}" alt="게시판 아이콘" class="nav-icon-img">
+            </div>
+            <span class="nav-label">게시판</span>
+        </a>
+    </div>
+</nav>
