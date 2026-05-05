@@ -46,6 +46,7 @@ def signup(request):
                 birth_date=birth_date,
                 profile_image=profile_image,
             )
+            profile.save()
 
             auth.login(request, newuser)
             return redirect('main:postpage')
