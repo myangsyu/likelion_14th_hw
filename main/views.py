@@ -64,7 +64,7 @@ def update(request, post_id):
     
     update_post = get_object_or_404(Post, pk=post_id)
 
-    if update_post.writer != request.user.username:
+    if update_post.writer != request.user:
         return redirect('main:detail', update_post.id)
     
     update_post.title = request.POST['title']
